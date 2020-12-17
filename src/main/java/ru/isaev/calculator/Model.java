@@ -1,4 +1,4 @@
-package sample;
+package ru.isaev.calculator;
 
 public class Model {
 

@@ -1,4 +1,4 @@
-package sample;
+package ru.isaev.calculator;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
