@@ -1,6 +1,9 @@
 package ru.isaev.calculator;
 
-public class Model {
+import org.springframework.stereotype.Component;
+
+@Component
+public class Service {
 
     public long calculation(long a, long b, String operator) {
 

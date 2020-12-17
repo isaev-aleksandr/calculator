@@ -1,12 +1,15 @@
-package ru.isaev.calculator;
+package ru.isaev.calculator.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import ru.isaev.calculator.Service;
 
+@Component
 public class Controller {
-
 
     @FXML
     private Text output;
@@ -16,8 +19,16 @@ public class Controller {
     private boolean start = true;
 
     private String operator = "";
-    private Model model = new Model();
+    private Service service;
 
+    @Autowired
+    public void setModel(Service service) {
+        this.service = service;
+    }
+
+    @FXML
+    public void initialize() {
+    }
 
     @FXML
     public void processNumber(ActionEvent event) {
@@ -39,7 +50,7 @@ public class Controller {
             output.setText("");
         } else {
             if (operator.isEmpty()) return;
-            output.setText(String.valueOf(model.calculation(number1, Long.parseLong(output.getText()), operator)));
+            output.setText(String.valueOf(service.calculation(number1, Long.parseLong(output.getText()), operator)));
             operator = "";
             start = true;
         }
