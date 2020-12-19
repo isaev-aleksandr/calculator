@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "operations")
-public class Operations {
+public class Operation {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -12,16 +12,26 @@ public class Operations {
     private int id;
 
     @Column(name = "first_number", nullable = false)
-    private String firstNumber;
+    private long firstNumber;
 
     @Column(name = "second_number", nullable = false)
-    private String secondNumber;
+    private long secondNumber;
 
     @Column(name = "operator", nullable = false)
     private String operator;
 
     @Column(name = "result", nullable = false)
-    private String result;
+    private long result;
+
+    public Operation() {
+
+    }
+    public Operation(long firstNumber, long secondNumber, String operator, long result) {
+        this.firstNumber = firstNumber;
+        this.secondNumber = secondNumber;
+        this.operator = operator;
+        this.result = result;
+    }
 
     public int getId() {
         return id;
@@ -31,19 +41,19 @@ public class Operations {
         this.id = id;
     }
 
-    public String getFirstNumber() {
+    public long getFirstNumber() {
         return firstNumber;
     }
 
-    public void setFirstNumber(String firstNumber) {
+    public void setFirstNumber(long firstNumber) {
         this.firstNumber = firstNumber;
     }
 
-    public String getSecondNumber() {
+    public long getSecondNumber() {
         return secondNumber;
     }
 
-    public void setSecondNumber(String secondNumber) {
+    public void setSecondNumber(long secondNumber) {
         this.secondNumber = secondNumber;
     }
 
@@ -55,11 +65,11 @@ public class Operations {
         this.operator = operator;
     }
 
-    public String getResult() {
+    public long getResult() {
         return result;
     }
 
-    public void setResult(String result) {
+    public void setResult(long result) {
         this.result = result;
     }
 }

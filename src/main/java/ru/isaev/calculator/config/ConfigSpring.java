@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
-public class Config {
+public class ConfigSpring {
 
     @Bean
     public DataSource dataSource() {
@@ -43,10 +43,7 @@ public class Config {
         return entityManagerFactoryBean;
     }
 
-
-
-    protected Properties buildHibernateProperties()
-    {
+    protected Properties buildHibernateProperties() {
         Properties hibernateProperties = new Properties();
 
         hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL10Dialect");
